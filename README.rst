@@ -23,3 +23,18 @@ Then, run the test client.::
   Recv: received 'hello'
   Send close
   Recv ack
+
+Development
+-----------
+
+Switch loading module to behaviour module::
+
+  $ make
+  $ cd deps/misultin/examples
+  $ erl -pa ../ebin -pa ../../../ebin
+  1> misultin_websocket_example:start(8888).
+  {ok,<0.33.0>}
+  2> code:which(misultin).
+  "../ebin/misultin.beam"
+  3> code:which(misultin_websocket).
+  "../../../ebin/misultin_websocket.beam"
